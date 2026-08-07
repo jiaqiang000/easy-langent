@@ -16,7 +16,7 @@ MCPChat 是一个可扩展的 AI Agent 平台，通过 MCP (Model Context Protoc
 
 ### MCP 工具推荐说明
 
-AI 工具推荐功能仅在 [`mcp_registry.json`](backend/mcp_registry.json) 中定义的工具范围内进行搜索匹配。如需支持更多工具推荐，请编辑该文件添加新的工具定义。
+AI 工具推荐功能仅在 [`mcp_registry.json`](mcp_registry.json) 中定义的工具范围内进行搜索匹配。如需支持更多工具推荐，请编辑该文件添加新的工具定义。
 
 当前内置工具：
 - `time` - 时间查询和时区转换

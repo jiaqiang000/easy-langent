@@ -64,7 +64,7 @@ LangChain 的三层架构可以直观地理解为：langchain-core是地基和�
 
 最后再帮大家理清两者的关系，避免混淆：首先是从属关系，LangGraph不是独立于LangChain的，它是LangChain生态的进阶扩展，依赖LangChain的核心组件（比如模型调用、工具这些“积木”），只是在流程管控、状态管理上做了增强；其次是互补关系，简单的任务用LangChain（快、简单），复杂的任务用LangGraph（稳、可控），实际开发中我们经常会把它们融合起来用——用LangChain搭好基础组件，再用LangGraph设计复杂的流程。
 
-![1-1](/img/1-1.png)
+![[agent/easy-langent/docs/guide/attachments/1-1.png]]
 
 再用一个形象的类比帮大家记住：
 

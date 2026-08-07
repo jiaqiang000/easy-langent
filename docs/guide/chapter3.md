@@ -44,6 +44,50 @@ LangChain提供了多种Memory实现，适用于不同场景。我们重点学�
 
 LCEL（LangChain Expression Language）是 LangChain 的核心表达式语言，用管道符 `|` 把组件串成流水线，前一个组件的输出自动作为后一个的输入，就像工厂的生产线。
 
+> ### 📌 先补课：RunnableWithMessageHistory 和 BaseChatMessageHistory 是什么？
+>
+> 前面说要通过 `RunnableWithMessageHistory` 结合 `BaseChatMessageHistory` 实现对话记忆，这两个名词第一次看可能有点懵。简单说，它们是"一对搭档"：一个管**流程调度**，一个管**存储规范**。逐个来看：
+>
+> **1️⃣ BaseChatMessageHistory —— "记忆笔记本"的接口标准（抽象类）**
+>
+> - 它本身**不保存任何数据**，只是一份"接口标准"，规定了一个"记忆笔记本"必须长什么样：
+>   - `messages` 属性：取出笔记本里存的所有历史消息；
+>   - `add_message()` 方法：往笔记本里追加一条新消息。
+> - 代码里 `get_session_history` 函数的返回类型标注成 `BaseChatMessageHistory`，含义是"我只要符合这套标准的对象"，至于对象具体是谁，无所谓。
+> - `InMemoryChatMessageHistory` 就是按这套标准实现的"默认笔记本"——历史直接存在内存里（程序重启就清空）。生产环境想换成 Redis、PostgreSQL，只需要照着标准写一个新类，其他代码**一行都不用改**。这就是把返回类型写成抽象类的意义。
+>
+> **2️⃣ RunnableWithMessageHistory —— "记忆调度员"（包装器）**
+>
+> - 它是一个**包装器（Wrapper）**，不自己干活，而是把你写好的链（`prompt | llm`）包起来，自动替你做两件事：
+>   - **调用前（提取）**：按 `session_id` 找到对应的笔记本，把历史消息自动填入提示词模板的 `chat_history` 占位符，和用户新问题拼好后再交给 LLM；
+>   - **调用后（存储）**：把这一轮的用户输入（HumanMessage）和 AI 回复（AIMessage）自动追加回笔记本，留给下一轮。
+> - 五个关键参数：
+>   - `runnable`：被包装的原始链（如 `full_memory_prompt | llm`）；
+>   - `get_session_history`：工厂函数，传入 `session_id`，返回该会话的笔记本；
+>   - `input_messages_key`：输入字典里"用户新问题"的键名（如 `user_input`）；
+>   - `history_messages_key`：提示词模板中历史占位符的变量名（如 `chat_history`）；
+>   - `output_messages_key`（可选）：输出消息的键名，链的输出是字典时才需要。
+>
+> **3️⃣ 两者配合的完整链路**
+>
+> ```text
+> 用户调用：chain.invoke({"user_input": "..."}, config={"configurable": {"session_id": "user_001"}})
+>     │
+>     ▼
+> ① RunnableWithMessageHistory 用 session_id 调 get_session_history
+>    → 返回一个 BaseChatMessageHistory 笔记本（没有就新建 InMemoryChatMessageHistory）
+>     │
+>     ▼
+> ② 调用前：从笔记本取出全部历史 → 填入 chat_history 占位符 → 连同新问题交给 LLM
+>     │
+>     ▼
+> ③ 调用后：本轮 HumanMessage + AIMessage 通过 add_message() 写回笔记本
+> ```
+>
+> 一句话总结：**BaseChatMessageHistory 是"存取标准"，RunnableWithMessageHistory 是"自动存取管家"**。你只需写两样东西——`prompt | llm` 这条链和 `get_session_history` 这个函数，剩下的"每次调用前取历史、调用后存对话"全部由调度员自动完成。
+>
+> 后面三种记忆模式的区别，其实**只体现在 `get_session_history` 这一步**：全量记忆原样返回全部历史；窗口记忆在返回前把历史截断成最近 N 轮；摘要记忆则是在历史注入链上多挂一个"压缩"环节。看懂这两个组件，三种模式就都通了～
+
 本教程将基于该架构分别实现三种核心记忆模式：
 
 - **全量记忆**：完整保存所有对话历史，适用于短对话场景

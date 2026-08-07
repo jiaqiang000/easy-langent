@@ -2,7 +2,7 @@
 
 一个基于 LangChain 1.1 和 React 的智能数据分析应用，支持 CSV 数据上传、AI 对话分析和数据可视化。
 
-![Data Agent](./public/show.png)
+![Data Agent](show.png)
 
 ## 主要功能
 
@@ -29,7 +29,7 @@
 - **相关性分析**：点击变量快速计算相关系数
 - **图表展示**：Agent 生成的图表自动显示在可视化面板
 
-![Data Agent](./public/fig.png)
+![Data Agent](fig.png)
 
 ## 项目结构
 

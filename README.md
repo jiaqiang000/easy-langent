@@ -46,39 +46,39 @@
 | 章节                                              | 关键内容                     | 状态 |
 | ------------------------------------------------- | ---------------------------- | ---- |
 | <strong>第一部分：前言</strong> |  |  |
-| [前言](./docs/guide/前言.md)        | 前言与读者建议   | ✅    |
-| [第一章 LangChain与LangGraph框架认知](./docs/guide/chapter1.md) |  框架介绍、环境安装、lang框架体验| ✅    | 
+| [前言](前言.md)        | 前言与读者建议   | ✅    |
+| [第一章 LangChain与LangGraph框架认知](chapter1.md) |  框架介绍、环境安装、lang框架体验| ✅    | 
 | <strong>第二部分：LangChain组件与实战</strong> |  |  |
-| [第二章 LangChain核心组件实操](./docs/guide/chapter2.md) | 模型调用、提示词模板、输出解析 | ✅    |
-| [第三章 LangChain进阶组件实操](./docs/guide/chapter3.md) | 记忆、工具、组合实践 | ✅    |
-| [第四章 LangChain应用级系统设计与RAG实践](./docs/guide/chapter4.md) | 链式工作流、RAG实践 | ✅    |
-| [第五章 课程中期综合实践：智能体应用设计与实现](./docs/guide/chapter5.md) | 中期综合实践 | ✅    |
+| [第二章 LangChain核心组件实操](chapter2.md) | 模型调用、提示词模板、输出解析 | ✅    |
+| [第三章 LangChain进阶组件实操](chapter3.md) | 记忆、工具、组合实践 | ✅    |
+| [第四章 LangChain应用级系统设计与RAG实践](chapter4.md) | 链式工作流、RAG实践 | ✅    |
+| [第五章 课程中期综合实践：智能体应用设计与实现](chapter5.md) | 中期综合实践 | ✅    |
 | <strong>第三部分：LangGraph组件与实战</strong> |  |  |
-| [第六章 LangGraph基础：有状态工作流与核心概念实操](./docs/guide/chapter6.md) | 有状态工作流、节点、边、状态管理 | ✅    |
-| [第七章 LangGraph进阶：多智能体协作与复杂流程管控](./docs/guide/chapter7.md) | 多智能体协作、复杂流程管控 | ✅    |
-| [第八章 综合实战：构建"谁是卧底"游戏智能体](./docs/guide/chapter8.md) | 综合实战 | ✅    |
-| [结语](./docs/guide/结语.md)        | 项目总结与展望   | ✅    |
+| [第六章 LangGraph基础：有状态工作流与核心概念实操](chapter6.md) | 有状态工作流、节点、边、状态管理 | ✅    |
+| [第七章 LangGraph进阶：多智能体协作与复杂流程管控](chapter7.md) | 多智能体协作、复杂流程管控 | ✅    |
+| [第八章 综合实战：构建"谁是卧底"游戏智能体](chapter8.md) | 综合实战 | ✅    |
+| [结语](结语.md)        | 项目总结与展望   | ✅    |
 
 ## 🤖 智能体 Agent 项目合集
 **📌 内测组队学习优秀课程项目**
 | 项目名称                                                 | 备注              | 作者    |
 | -------------------------------------------------------- | ----------------- | ------- |
-| [狼人杀（上帝视角）](./project/werewolfGameAi/README.md) | 基于langgraph开发 | 内测组  |
+| [狼人杀（上帝视角）](agent/easy-langent/project/werewolfGameAi/README.md) | 基于langgraph开发 | 内测组  |
 
 **📌 202604组队学习优秀课程项目**
 | 项目名称                                                 | 备注              | 作者    |
 | -------------------------------------------------------- | ----------------- | ------- |
-| [剧本杀4人版](./project/ScriptedMurderGame/README.md) | 基于langgraph开发 | winnerFlyer  |
-| [智能知识库问答](./project/AgenticRag/README.md)         | 基于langchain开发 | jspi-fu |
-| [MCPChat](./project/MCPChat/README.md)                   | 基于langchain开发 | jspi-fu |
-| [数据处理智能体](./project/DataAgent/README.md)          | 基于langchain开发 | jspi-fu |
-| [医疗RAG诊断](./project/MedicalRag/README.md)            | 基于langchain开发  |道法自然|
-| [谁是卧底增强版](./project/WhoIsTheSpyBaocaiLi/readme.md)            | 基于langgraph开发  |道法自然|
-| [个人助手](./project/PersonalMemoryAssistant/README.md)  | 基于langchain开发  |念安|
-| [AI面试官](./project/RecruitingInterviewAgentDemo/Readme.md)  | 基于langgraph开发  |念安|
-| [客服工单智能处理](./project/TicketReviewAgentDemo/Readme.md)  | 基于langgraph开发  |念安|
-| [辩论赛4人版](./project/DebateGame/README.md)  | 基于langgraph开发  |WangDF2022|
-| [哈尔滨冰雪大世界舆情分析](./project/HarbinIceSnowOpinionDecision/README.md)  | 基于langgraph开发  |tian09150714|
+| [剧本杀4人版](agent/easy-langent/project/ScriptedMurderGame/README.md) | 基于langgraph开发 | winnerFlyer  |
+| [智能知识库问答](agent/easy-langent/project/AgenticRag/README.md)         | 基于langchain开发 | jspi-fu |
+| [MCPChat](agent/easy-langent/project/MCPChat/README.md)                   | 基于langchain开发 | jspi-fu |
+| [数据处理智能体](agent/easy-langent/project/DataAgent/README.md)          | 基于langchain开发 | jspi-fu |
+| [医疗RAG诊断](agent/easy-langent/project/MedicalRag/README.md)            | 基于langchain开发  |道法自然|
+| [谁是卧底增强版](agent/easy-langent/project/WhoIsTheSpyBaocaiLi/readme.md)            | 基于langgraph开发  |道法自然|
+| [个人助手](agent/easy-langent/project/PersonalMemoryAssistant/README.md)  | 基于langchain开发  |念安|
+| [AI面试官](agent/easy-langent/project/RecruitingInterviewAgentDemo/Readme.md)  | 基于langgraph开发  |念安|
+| [客服工单智能处理](agent/easy-langent/project/TicketReviewAgentDemo/Readme.md)  | 基于langgraph开发  |念安|
+| [辩论赛4人版](agent/easy-langent/project/DebateGame/README.md)  | 基于langgraph开发  |WangDF2022|
+| [哈尔滨冰雪大世界舆情分析](agent/easy-langent/project/HarbinIceSnowOpinionDecision/README.md)  | 基于langgraph开发  |tian09150714|
 
 ## ✨核心贡献者
 - [牧小熊-项目负责人](https://github.com/muxiaoxiong)(Datawhale成员)

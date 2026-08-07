@@ -171,7 +171,7 @@ python project/RecruitingInterviewAgentDemo/RecruitingInterviewAgent.py --auto
 
 
 ## 10. 项目截图
-![img.png](img.png)
+![img.png](agent/easy-langent/project/RecruitingInterviewAgentDemo/img.png)
 
 ## 11. License
 

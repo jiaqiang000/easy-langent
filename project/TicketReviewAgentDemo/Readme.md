@@ -148,7 +148,7 @@ python project/TicketReviewAgentDemo/TicketReviewAgent.py --auto
 - 增加多轮修改，让人工驳回后重新生成草稿。
 
 ## 8.项目截图
-![img.png](img.png)
+![img.png](agent/easy-langent/project/TicketReviewAgentDemo/img.png)
 
 ## 9. License
 

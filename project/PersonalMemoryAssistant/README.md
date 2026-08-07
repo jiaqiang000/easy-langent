@@ -4,11 +4,11 @@
 
 ## 效果展示
 
-![个人生活记忆助手首页](./images/img_1.png)
+![个人生活记忆助手首页](img_1.png)
 
-![对话与记忆更新](./images/img.png)
+![对话与记忆更新](agent/easy-langent/project/PersonalMemoryAssistant/images/img.png)
 
-![长期记忆展示](./images/img_2.png)
+![长期记忆展示](img_2.png)
 
 ## 适用场景
 
