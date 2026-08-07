@@ -43,6 +43,37 @@ LangChain 0.1.x 版本后，官方重构了核心架构，**旧版 SequentialCha
 >  小提示：在实际应用中，RunnableSequence（线性流转） 与 RunnableBranch（动态路由） 是最常用的两种模式。
 >  新版 Runnables 体系的优势在于：组件更轻量、支持流式与异步执行、可自由组合嵌套，更适合构建复杂的应用级 AI 系统。
 
+> 
+> 你现在页面里的：
+> 
+> ```
+> RunnableSequence   = 线性工作流
+> RunnableBranch     = 条件分支工作流
+> ```
+> 
+> 而之前的：
+> 
+> ```
+> BaseChatMessageHistory
+> RunnableWithMessageHistory
+> ```
+> 
+> 属于**会话记忆**体系。
+> 
+> 可以直接这样分：
+> 
+> ```
+> LangChain
+> │
+> ├─ 工作流 / Runnable
+> │   ├─ RunnableSequence     ← 按顺序执行
+> │   └─ RunnableBranch       ← 根据条件选一个分支执行
+> │
+> └─ 对话历史 / Memory
+>     ├─ BaseChatMessageHistory       ← 存聊天记录的接口
+>     └─ RunnableWithMessageHistory   ← 给 Runnable 加上聊天历史能力
+> ```
+
 ### 4.1.2 基于 RunnableSequence / `|` 运算符
 
 线性链就像“多米诺骨牌”，一个倒下带动下一个，核心是“顺序执行、数据流转”。
