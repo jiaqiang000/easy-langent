@@ -67,12 +67,18 @@ LangChain 0.1.x 版本后，官方重构了核心架构，**旧版 SequentialCha
 > │
 > ├─ 工作流 / Runnable
 > │   ├─ RunnableSequence     ← 按顺序执行
-> │   └─ RunnableBranch       ← 根据条件选一个分支执行
+> │   ├─ RunnableBranch       ← 根据条件选一个分支执行
+> │   └─ RunnableLambda       ← 包任意函数，当自定义加工站
 > │
 > └─ 对话历史 / Memory
 >     ├─ BaseChatMessageHistory       ← 存聊天记录的接口
 >     └─ RunnableWithMessageHistory   ← 给 Runnable 加上聊天历史能力
 > ```
+>
+> 简单串一下关系：
+>
+> - **工作流 / Runnable（"流水线零件"）**：RunnableSequence 定顺序、RunnableBranch 选分支；RunnableLambda 是「普通函数」与「可运行组件」之间的适配器，把任意自定义函数包装成 Runnable 后就能用 `|` 接入链式调用体系；
+> - **对话历史 / Memory（"记忆外挂"）**：BaseChatMessageHistory 是存聊天记录的接口，RunnableWithMessageHistory 给 Runnable 链自动加上聊天历史能力（调用前注入历史、调用后存档）。
 
 ### 4.1.2 基于 RunnableSequence / `|` 运算符
 
