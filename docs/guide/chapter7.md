@@ -16,9 +16,7 @@ pip install langgraph
 # 注意：LangGraph v1.0.0+ 接口有较大更新，旧版本代码需修改，本章全程适配新版本
 ```
 
-![7-1](/img/7-1.gif)
-
-
+![[agent/easy-langent/docs/guide/attachments/7-1.gif]]
 
 ## 7.1 多智能体系统（Multi-Agent Systems）核心设计
 
@@ -3094,7 +3092,7 @@ def confirm_outline_chapter(state: NovelCreationState) -> NovelCreationState:
 
 #### 节点6：按章节生成小说（generate_complete_novel）
 
-```
+```python
 def generate_complete_novel(state: NovelCreationState) -> NovelCreationState:
     """节点6：逐章生成小说正文（带章节进度）"""
     if not state.get("is_outline_confirmed", False):

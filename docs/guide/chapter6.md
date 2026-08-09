@@ -490,8 +490,8 @@ print(graph.invoke(state))
 from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
+![[agent/easy-langent/docs/guide/attachments/6-2.png]]
 
-![6-2](/img/6-2.png)
 
 从图中能清楚看到节点的运行状态，可以从图中看到我们将rewrite_node 增加到了节点 但是没有用边连接起来，于是rewrite_node变成了孤立的节点~
 
@@ -569,7 +569,7 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![6-3](/img/6-3.png)
+![[agent/easy-langent/docs/guide/attachments/6-3.png]]
 
 **循环边**
 
@@ -631,7 +631,9 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![6-4](/img/6-4.png)
+![[agent/easy-langent/docs/guide/attachments/6-4.png]]
+
+
 
 循环边本质是“返回前序节点”的条件边，用于需要重复执行的场景（比如校验结果不合格，重新调用工具）
 
@@ -1094,7 +1096,7 @@ png_data = linear_graph.get_graph().draw_mermaid_png()  # 获取PNG字节流
     print("📊 工作流可视化图已保存：linear_text_process_graph.png\n")
 ```
 
-![6-5](/img/6-5.png)
+![[agent/easy-langent/docs/guide/attachments/6-5.png]]
 
 ### 6.4.3 案例2：分支工作流——带结果校验的动态文本处理
 
@@ -1406,7 +1408,7 @@ LangGraph是LangChain生态的有状态工作流框架，支持图结构建模�
 
 我们看一下工作图
 
-![6-6](/img/6-6.png)
+![[agent/easy-langent/docs/guide/attachments/6-6.png]]
 
 ### 6.4.4 案例3：循环工作流——人机交互式文本优化
 
